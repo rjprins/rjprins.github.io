@@ -1,0 +1,7 @@
+site_name: rjprins blog
+plugins:
+  - blog
+
+theme:
+  name: null
+  custom_dir: theme

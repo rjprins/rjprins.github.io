@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title or config.site_name }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if page.meta.description %}
+  <meta name="description" content="{{ page.meta.description }}">
+  {% endif %}
+  <style>
+    :root { --w: 42rem; }
+    body { margin: 2rem auto; padding: 0 1rem; max-width: var(--w); line-height: 1.6; }
+    header, footer { margin: 1rem 0 2rem; }
+    nav a { margin-right: .75rem; text-decoration: underline; }
+    h1, h2, h3 { line-height: 1.2; }
+    pre, code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    img, video { max-width: 100%; height: auto; }
+    hr { border: 0; border-top: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="{{ base_url }}">{{ config.site_name }}</a></h1>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

@@ -1,7 +1,5 @@
-site_name: rjprins blog
+site_name: Rutger's Blog
 
 theme:
-  name: material
-
-plugins:
-  - blog
+  name: null
+  custom_dir: theme

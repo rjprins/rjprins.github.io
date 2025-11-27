@@ -25,7 +25,7 @@
     
   <h1 id="the-case-of-multiple-repos">The Case of Multiple Repos</h1>
 <p><em>2025-11-27</em></p>
-<p>**Your whole project should be in a single git repo!</p>
+<p><strong>Your whole project should be in a single git repo!</strong></p>
 <p>Really, it does! Multiple repos make teams slow and systems error prone.</p>
 <p>If the<code>frontend</code>, <code>backend</code>, <code>infrastructure</code>, <code>computation_service</code>, <code>data_pipelines</code>, <code>forecast_model</code> should be working together they should be in a single repo. Too often have I seen this not being case, and the effects are more costly and insidious than you'd think at first.</p>
 <p>Let's take <code>frontend</code> and <code>backend</code>, now this might be less common these days because fullstack developers will generally not create two repositories (for reasons I will go into later). But how do you make sure your frontend and backend work correctly together if they are in separate repositories?</p>
@@ -45,16 +45,6 @@ These issues will slow down your team; There is more to manage, you will find bu
 <p>You don't have to go full monorepo, Google-style. Instead ideally you look at what parts are connected, and put as many of those connected parts in a single repository, until you actually reach other practical limits. I'm not sure what those limits are or where they lie, but they are certainly a lot further away than commonly assumed. Hit those limits first and <em>then</em> think about where a second layer of versioning will be worth the hassle.</p>
 <p>These days, frontend and backend is more likely to be done by fullstack developers. They will use a single repo for both, because they won't feel this friction in collaboration. But infrastructure engineers, data scientists, and data engineers are still likely to be working in their own repositories. Or each data model may have its own repository, with its own full set of project dependencies, Makefiles, and CI/CD. Yet another tiny little project that needs managing. </p>
 <p>If you find yourself dealing with integration errors, or versioning to prevent integration errors: Consider merging repositories.</p>
-<p>A good counter-argument is:</p>
-<blockquote>
-<p>If there is a critical issue in one part of the system, we cannot deploy other parts of the system.</p>
-</blockquote>
-<p>This is a real issue, and one of the possible limits. Let's assume we did a rollback to a stable version of the project because the backend fails in the new version. But the data scientists want to deploy their new model. They either have to:
-- Wait until the issue is resolved
-- Rebase their code on the older stable version
-- Have a separate deployment process</p>
-<p>Although it makes sense to have single deployment process for a project in a single repository, it is not required. Infrastructure deployments will very likely require their own flow. And data pipelines and data models could have their own flows as well.
-Having separate deployment flows will alleviate the dependency pain, but it reintroduces the risk of misaligned versions. This is inherent to the problem. You can't be both independent <em>and</em> always be aligned on versions.</p>
 
   </main>
 

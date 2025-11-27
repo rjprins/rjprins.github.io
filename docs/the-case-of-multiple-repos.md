@@ -2,7 +2,7 @@
 
 *2025-11-27*
 
-**Your whole project should be in a single git repo!
+**Your whole project should be in a single git repo!**
 
 Really, it does! Multiple repos make teams slow and systems error prone.
 
@@ -36,16 +36,3 @@ You don't have to go full monorepo, Google-style. Instead ideally you look at wh
 These days, frontend and backend is more likely to be done by fullstack developers. They will use a single repo for both, because they won't feel this friction in collaboration. But infrastructure engineers, data scientists, and data engineers are still likely to be working in their own repositories. Or each data model may have its own repository, with its own full set of project dependencies, Makefiles, and CI/CD. Yet another tiny little project that needs managing. 
 
 If you find yourself dealing with integration errors, or versioning to prevent integration errors: Consider merging repositories.
-
-
-A good counter-argument is:
-
-> If there is a critical issue in one part of the system, we cannot deploy other parts of the system.
-
-This is a real issue, and one of the possible limits. Let's assume we did a rollback to a stable version of the project because the backend fails in the new version. But the data scientists want to deploy their new model. They either have to:
-- Wait until the issue is resolved
-- Rebase their code on the older stable version
-- Have a separate deployment process
-
-Although it makes sense to have single deployment process for a project in a single repository, it is not required. Infrastructure deployments will very likely require their own flow. And data pipelines and data models could have their own flows as well.
-Having separate deployment flows will alleviate the dependency pain, but it reintroduces the risk of misaligned versions. This is inherent to the problem. You can't be both independent _and_ always be aligned on versions.

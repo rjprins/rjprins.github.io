@@ -18,11 +18,13 @@ These release tags are the second layer of version control. One that you are man
 
 Versioned releases are great - if you are providing a library or a public API. But if this is an _application_, versions are really only useful for release notes and bug reports.  
 
-The downsides and costs of second-layer versioning should not be underestimated. It goes further than the frustrated frontender that forgot to update the backend repository again. Crucial development processes become more complicated: 
+The downsides and costs of second-layer versioning should not be underestimated. It goes further than the frustrated frontender that forgot to update the backend repository again. Crucial development processes become more complicated:
+
 - How do you manage deploying the different subsystems?
 - How do you run the complete system locally?
 - How do you test end-to-end?
 - How do you do code review over a complete feature?
+
 These issues will slow down your team; There is more to manage, you will find bugs later and will have a whole class of bugs that are not possible in a single repo.
 
 And there are other, less obvious problems. Separate repositories create knowledge silos and ownership silos, and lower overall collaboration. They increase the friction of cross-functional work. Developers don't naturally see merge requests for other parts of a system and will be less inclined to get involved.
